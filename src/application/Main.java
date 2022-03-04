@@ -18,14 +18,12 @@ public class Main {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
 
-        Product product = new Product();
         System.out.println("Enter product data");
         System.out.println("Name: ");
-        product.name = sc.nextLine();
+        String name = sc.nextLine();
         System.out.println("price ");
-        product.price = sc.nextDouble();
-        System.out.println("quantity in Stock ");
-        product.quantity = sc.nextInt();
+        double price = sc.nextDouble();
+        Product product = new Product(name, price);
 
         System.out.println();
         System.out.println("Product data: " + product);
@@ -42,7 +40,7 @@ public class Main {
 
         System.out.println();
         System.out.println("Updated data " + product);
-
+    /*
         //Now is the class Rectangle
         System.out.println("type the width and the height of the rectangle");
         Rectangle rectangle = new Rectangle();
@@ -76,6 +74,8 @@ public class Main {
         double ammountOfDollars = sc.nextDouble();
         double totalOfReais = CurrencyConverter.converter(ammountOfDollars);
         System.out.println(totalOfReais);
+
+     */
         sc.close();
     }
 }
