@@ -1,9 +1,6 @@
 package application;
 
-import entities.Employee;
-import entities.Product;
-import entities.Rectangle;
-import entities.Student;
+import entities.*;
 import util.CurrencyConverter;
 
 import java.util.Locale;
@@ -23,7 +20,7 @@ public class Main {
         String name = sc.nextLine();
         System.out.println("price ");
         double price = sc.nextDouble();
-        Product product = new Product(name, price);
+        Product product = new Product();
 
         product.setName("Computer");
         System.out.println("Updated name: " + product.getName());
@@ -47,7 +44,7 @@ public class Main {
 
         System.out.println();
         System.out.println("Updated data " + product);
-    /*
+    
         //Now is the class Rectangle
         System.out.println("type the width and the height of the rectangle");
         Rectangle rectangle = new Rectangle();
@@ -82,7 +79,38 @@ public class Main {
         double totalOfReais = CurrencyConverter.converter(ammountOfDollars);
         System.out.println(totalOfReais);
 
-     */
+
+        //BankAccount
+        BankAccount bankAccount;
+        System.out.println("Enter account number");
+        int accountNumber = sc.nextInt();
+        System.out.println("Enter account holder");
+        sc.nextLine();
+        String holder = sc.nextLine();
+        System.out.println("Is there a initial deposit?");
+        char question = sc.next().charAt(0);
+        if (question == 'y') {
+            System.out.println("Enter the initial deposit");
+            double initialDeposit = sc.nextDouble();
+            bankAccount = new BankAccount(accountNumber, holder, initialDeposit);
+        } else {
+            bankAccount = new BankAccount(accountNumber, holder);
+        }
+        System.out.println();
+        System.out.println("Account data");
+        System.out.println(bankAccount);
+
+        System.out.println();
+        System.out.println("Enter a deposit value");
+        double depositValue = sc.nextDouble();
+        bankAccount.deposit(depositValue);
+        System.out.println(bankAccount);
+
+        System.out.println("Enter a withdraw value");
+        double withdrawValue = sc.nextDouble();
+        bankAccount.withdraw(withdrawValue);
+        System.out.println(bankAccount);
+
         sc.close();
     }
 }
