@@ -13,9 +13,17 @@ public class Program_Date {
 
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
+        int minutes = cal.get(Calendar.MINUTE);
+        int month = 1 + cal.get(Calendar.MONTH);
+        int year = 1 + cal.get(Calendar.YEAR);
+
         cal.add(Calendar.DAY_OF_MONTH,4);
         date = cal.getTime();
         System.out.println(sdf.format(date));
+        System.out.println("Minutes :" + minutes);
+        System.out.println("Month :" + month);
+        System.out.println("Year :" + year);
+
 
 
     }
